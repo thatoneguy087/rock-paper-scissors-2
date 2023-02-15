@@ -9,6 +9,15 @@ function getComputerChoice() {
 //create function to play a round of rock paper scissors
   //get player and computer input, and compare them against eachother. 
   //return one of three options, playerwin, computerwin, or tie
+function playRound (playerSelection, computerSelection) {
+  if(playerSelection === computerSelection) {
+    return 2;
+  }
+  if((computerSelection === 'rock' && playerSelection === 'paper') || (computerSelection === 'paper' && playerSelection === 'scissors') || (computerSelection === 'scissors' && playerSelection === 'rock')) {
+    return 0;
+  }
+  return 1;
+}
 //create function to declare winner
 //create function to play first to five game of rock paper scissors
   //create loop until one player reaches 5 wins.
@@ -16,4 +25,7 @@ function getComputerChoice() {
 //create input to get player choice
   //simple prompt to get player choice. 
 const playerChoice = prompt('What is your move?', '').toLowerCase();
-console.log(playerChoice);
+const computerChoice = getComputerChoice();
+console.log('Player: ' + playerChoice);
+console.log('Computer: ' + computerChoice);
+console.log(playRound(playerChoice, computerChoice));
