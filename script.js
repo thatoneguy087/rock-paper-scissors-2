@@ -19,6 +19,18 @@ function playRound (playerSelection, computerSelection) {
   return 1;
 }
 //create function to declare winner
+function declareWinner(roundOutcome){
+  switch(true) {
+    case roundOutcome === 0 :
+      return 'Player Won!';
+      break;
+    case roundOutcome === 1 :
+      return 'Computer Won!';
+      break;
+    default:
+      return 'It\'s a tie!';
+  }
+}
 //create function to play first to five game of rock paper scissors
   //create loop until one player reaches 5 wins.
 
@@ -28,4 +40,4 @@ const playerChoice = prompt('What is your move?', '').toLowerCase();
 const computerChoice = getComputerChoice();
 console.log('Player: ' + playerChoice);
 console.log('Computer: ' + computerChoice);
-console.log(playRound(playerChoice, computerChoice));
+console.log(declareWinner(playRound(playerChoice, computerChoice)));
