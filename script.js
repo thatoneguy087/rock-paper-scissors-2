@@ -17,3 +17,5 @@ function getComputerChoice() {
 for (let i = 0; i < 5; i++) {
   console.log(getComputerChoice());
 }
+const playerChoice = prompt('What is your move?', '');
+console.log(playerChoice);
