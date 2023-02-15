@@ -33,11 +33,26 @@ function declareWinner(roundOutcome){
 }
 //create function to play first to five game of rock paper scissors
   //create loop until one player reaches 5 wins.
+function game() {
+  let playerScore = 0;
+  let computerScore = 0;
 
+  while (playerScore < 5 && computerScore < 5){
+    const playerChoice = prompt('What is your move?', '').toLowerCase();
+    const computerChoice = getComputerChoice();
+    console.log('Player: ' + playerChoice);
+    console.log('Computer: ' + computerChoice);
+
+    if(playRound(playerChoice, computerChoice) === 0) {
+      playerScore++;
+    } else if (playRound(playerChoice, computerChoice) === 1){
+      computerScore++;
+    }
+    console.log(declareWinner(playRound(playerChoice, computerChoice)));
+    console.log('Score is ' + playerScore + ' to ' + computerScore + '!');
+    console.log('');
+  }
+}
 //create input to get player choice
   //simple prompt to get player choice. 
-const playerChoice = prompt('What is your move?', '').toLowerCase();
-const computerChoice = getComputerChoice();
-console.log('Player: ' + playerChoice);
-console.log('Computer: ' + computerChoice);
-console.log(declareWinner(playRound(playerChoice, computerChoice)));
+game();
