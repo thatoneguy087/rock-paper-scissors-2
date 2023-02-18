@@ -55,4 +55,3 @@ function game() {
 }
 //create input to get player choice
   //simple prompt to get player choice. 
-game();
