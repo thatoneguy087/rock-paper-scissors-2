@@ -25,6 +25,13 @@ body {
   height: 150px;
 }
 
+button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .img-placeholder {
   height: 100px;
   width: 100px;
