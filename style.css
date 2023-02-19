@@ -58,6 +58,9 @@ button {
   font-size: 20px;
   font-weight: bold;
 }
+.play .plays {
+  height: 60px;
+}
 .img-placeholder {
   height: 100px;
   width: 100px;
