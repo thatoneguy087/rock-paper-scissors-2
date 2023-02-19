@@ -35,6 +35,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 50px;
+  margin-bottom: 24px;
 }
 .buttons button {
   width: 150px;
@@ -58,9 +59,11 @@ button {
   font-size: 20px;
   font-weight: bold;
 }
+
 .play .plays {
   height: 60px;
 }
+
 .img-placeholder {
   height: 100px;
   width: 100px;
