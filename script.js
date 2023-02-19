@@ -55,6 +55,13 @@ function game() {
 }
 //create input to get player choice
   //simple prompt to get player choice. 
-let rockBtn = document.querySelector('#rock');
-let paperBtn = document.querySelector('#paper');
-let scissorsBtn = document.querySelector('#scissors');
+let btns = [...document.querySelectorAll('button')];
+btns.forEach(btn => btn.addEventListener('click', () => {
+  console.log(btn.id);
+}));
+//when a button is pressed, use the classlist to determine the user move
+  //select all the buttons, and store them in an array
+  //go through each item in the array, and add an event listener
+  //use the selected item, using the classlist to
+//run the rest of the code as is. 
+//later on, change the placeholder to the appropriate text/image based upon the outcome
