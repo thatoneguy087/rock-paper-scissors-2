@@ -42,6 +42,10 @@ body {
   height: 150px;
 }
 
+.buttons button:hover {
+  background-color: rgb(200, 200, 200);
+}
+
 button {
   display: flex;
   flex-direction: column;
