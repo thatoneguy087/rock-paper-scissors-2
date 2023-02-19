@@ -55,3 +55,6 @@ function game() {
 }
 //create input to get player choice
   //simple prompt to get player choice. 
+let rockBtn = document.querySelector('#rock');
+let paperBtn = document.querySelector('#paper');
+let scissorsBtn = document.querySelector('#scissors');
