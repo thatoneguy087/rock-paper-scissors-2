@@ -62,6 +62,7 @@ button {
 
 .play .plays {
   height: 60px;
+  margin-bottom: 24px;
 }
 
 .img-placeholder {
