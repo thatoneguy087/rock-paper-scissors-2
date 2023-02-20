@@ -55,11 +55,16 @@ function game() {
 }
 //create input to get player choice
   //simple prompt to get player choice. 
+const playContainer = document.querySelector('.plays');
 let btns = [...document.querySelectorAll('button')];
 btns.forEach(btn => btn.addEventListener('click', () => {
   const playerChoice = btn.id;
   const computerChoice = getComputerChoice();
-  console.log('Player: ' + playerChoice);
+  
+  let playerPlay = document.createElement('p');
+  playerPlay.textContent = `You chose ${playerChoice}.`;
+  playContainer.appendChild(playerPlay);
+
   console.log('Computer: ' + computerChoice);
   console.log(declareWinner(playRound(playerChoice, computerChoice)));
 }));
