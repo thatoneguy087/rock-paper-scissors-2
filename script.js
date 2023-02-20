@@ -65,10 +65,16 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   let computerPlay = document.createElement('p');
   playerPlay.textContent = `You chose ${playerChoice}.`;
   computerPlay.textContent = `Computer chose ${computerChoice}.`
-  playContainer.appendChild(playerPlay);
-  playContainer.appendChild(computerPlay);
 
-  console.log('Computer: ' + computerChoice);
+  const playerReplace = document.querySelector('#player-replace');
+  const computerReplace = document.querySelector('#computer-replace');
+  playerReplace.replaceWith(playerPlay);
+  computerReplace.replaceWith(computerPlay);
+  playerPlay.id = 'player-replace';
+  computerPlay.id = 'computer-replace';
+  
+  //playContainer.appendChild(playerPlay);
+  //playContainer.appendChild(computerPlay);
   console.log(declareWinner(playRound(playerChoice, computerChoice)));
 }));
 //when a button is pressed, use the classlist to determine the user move
