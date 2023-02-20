@@ -57,7 +57,11 @@ function game() {
   //simple prompt to get player choice. 
 let btns = [...document.querySelectorAll('button')];
 btns.forEach(btn => btn.addEventListener('click', () => {
-  console.log(btn.id);
+  const playerChoice = btn.id;
+  const computerChoice = getComputerChoice();
+  console.log('Player: ' + playerChoice);
+  console.log('Computer: ' + computerChoice);
+  console.log(declareWinner(playRound(playerChoice, computerChoice)));
 }));
 //when a button is pressed, use the classlist to determine the user move
   //select all the buttons, and store them in an array
