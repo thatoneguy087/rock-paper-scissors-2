@@ -62,8 +62,11 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   const computerChoice = getComputerChoice();
   
   let playerPlay = document.createElement('p');
+  let computerPlay = document.createElement('p');
   playerPlay.textContent = `You chose ${playerChoice}.`;
+  computerPlay.textContent = `Computer chose ${computerChoice}.`
   playContainer.appendChild(playerPlay);
+  playContainer.appendChild(computerPlay);
 
   console.log('Computer: ' + computerChoice);
   console.log(declareWinner(playRound(playerChoice, computerChoice)));
