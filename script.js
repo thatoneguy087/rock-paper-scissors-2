@@ -55,7 +55,6 @@ function game() {
 }
 //create input to get player choice
   //simple prompt to get player choice. 
-const playContainer = document.querySelector('.plays');
 let btns = [...document.querySelectorAll('button')];
 btns.forEach(btn => btn.addEventListener('click', () => {
   const playerChoice = btn.id;
@@ -72,9 +71,12 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   computerReplace.replaceWith(computerPlay);
   playerPlay.id = 'player-replace';
   computerPlay.id = 'computer-replace';
-  
-  //playContainer.appendChild(playerPlay);
-  //playContainer.appendChild(computerPlay);
+
+  const playReplace = document.querySelector('#play-replace');
+  const playOutcome = document.createElement('p');
+  playOutcome.textContent = declareWinner(playRound(playerChoice, computerChoice), playerChoice, computerChoice);
+  playReplace.replaceWith(playOutcome);
+  playOutcome.id = 'play-replace';
   console.log(declareWinner(playRound(playerChoice, computerChoice), playerChoice, computerChoice));
 }));
 //when a button is pressed, use the classlist to determine the user move
