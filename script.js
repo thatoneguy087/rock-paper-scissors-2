@@ -1,14 +1,13 @@
-//create computer choice function to get random computer choice
-  //base choice off of random number given
+//Function to get randomized computer selection of rock, paper, or scissors.
 function getComputerChoice() {
   const num = Math.floor(Math.random() * 3);
   return num === 0 ? 'rock' :
     num === 1 ? 'paper' : 
     'scissors'
 }
-//create function to play a round of rock paper scissors
-  //get player and computer input, and compare them against eachother. 
-  //return one of three options, playerwin, computerwin, or tie
+
+//Function to play a round of rock, paper, scissors. Returns a number based on
+//the outcome. Number to be used for point allocation and winner declaration.
 function playRound (playerSelection, computerSelection) {
   if(playerSelection === computerSelection) {
     return 2;
@@ -18,7 +17,8 @@ function playRound (playerSelection, computerSelection) {
   }
   return 1;
 }
-//create function to declare winner
+//Function to declare a winner based on the round outcome. player choice and 
+//computer choice added for more detailed declaration message
 function declareWinner(roundOutcome, playerChoice, ComputerChoice){
   switch(true) {
     case roundOutcome === 0 :
@@ -31,8 +31,8 @@ function declareWinner(roundOutcome, playerChoice, ComputerChoice){
       return 'It\'s a tie!';
   }
 }
-//create function to play first to five game of rock paper scissors
-  //create loop until one player reaches 5 wins.
+
+//function to play a first to five game in the console.
 function game() {
   let playerScore = 0;
   let computerScore = 0;
@@ -53,18 +53,19 @@ function game() {
     console.log('');
   }
 }
-//create input to get player choice
-  //simple prompt to get player choice. 
+
+//Listen for the buttons being clicked and use that as the player input to drive
+//round outcome and DOM changes
 let btns = [...document.querySelectorAll('button')];
 btns.forEach(btn => btn.addEventListener('click', () => {
   const playerChoice = btn.id;
   const computerChoice = getComputerChoice();
-  
+
+  //Display the plays in the DOM
   let playerPlay = document.createElement('p');
   let computerPlay = document.createElement('p');
   playerPlay.textContent = `You chose ${playerChoice}.`;
   computerPlay.textContent = `Computer chose ${computerChoice}.`
-
   const playerReplace = document.querySelector('#player-replace');
   const computerReplace = document.querySelector('#computer-replace');
   playerReplace.replaceWith(playerPlay);
@@ -72,16 +73,10 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   playerPlay.id = 'player-replace';
   computerPlay.id = 'computer-replace';
 
+  //Display the outcome of the round at the bottom of the 'plays' container
   const playReplace = document.querySelector('#play-replace');
   const playOutcome = document.createElement('p');
   playOutcome.textContent = declareWinner(playRound(playerChoice, computerChoice), playerChoice, computerChoice);
   playReplace.replaceWith(playOutcome);
   playOutcome.id = 'play-replace';
-  console.log(declareWinner(playRound(playerChoice, computerChoice), playerChoice, computerChoice));
 }));
-//when a button is pressed, use the classlist to determine the user move
-  //select all the buttons, and store them in an array
-  //go through each item in the array, and add an event listener
-  //use the selected item, using the classlist to
-//run the rest of the code as is. 
-//later on, change the placeholder to the appropriate text/image based upon the outcome
