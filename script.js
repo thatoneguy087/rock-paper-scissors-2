@@ -53,6 +53,8 @@ function game() {
     console.log('');
   }
 }
+let playerScore = 0;
+let computerScore = 0;
 
 //Listen for the buttons being clicked and use that as the player input to drive
 //round outcome and DOM changes
@@ -73,10 +75,18 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   playerPlay.id = 'player-replace';
   computerPlay.id = 'computer-replace';
 
+  if(playRound(playerChoice, computerChoice) === 0) {
+    playerScore++;
+  } else if (playRound(playerChoice, computerChoice) === 1){
+    computerScore++;
+  }
+
   //Display the outcome of the round at the bottom of the 'plays' container
   const playReplace = document.querySelector('#play-replace');
   const playOutcome = document.createElement('p');
   playOutcome.textContent = declareWinner(playRound(playerChoice, computerChoice), playerChoice, computerChoice);
   playReplace.replaceWith(playOutcome);
   playOutcome.id = 'play-replace';
+
+  console.log(`Score: ${playerScore} - ${computerScore}`);
 }));
