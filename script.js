@@ -19,13 +19,13 @@ function playRound (playerSelection, computerSelection) {
   return 1;
 }
 //create function to declare winner
-function declareWinner(roundOutcome){
+function declareWinner(roundOutcome, playerChoice, ComputerChoice){
   switch(true) {
     case roundOutcome === 0 :
-      return 'Player Won!';
+      return `${playerChoice} beats ${ComputerChoice}!\nYou Win!`;
       break;
     case roundOutcome === 1 :
-      return 'Computer Won!';
+      return `${ComputerChoice} beats ${playerChoice}!\nComputer Wins!`;
       break;
     default:
       return 'It\'s a tie!';
@@ -75,7 +75,7 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   
   //playContainer.appendChild(playerPlay);
   //playContainer.appendChild(computerPlay);
-  console.log(declareWinner(playRound(playerChoice, computerChoice)));
+  console.log(declareWinner(playRound(playerChoice, computerChoice), playerChoice, computerChoice));
 }));
 //when a button is pressed, use the classlist to determine the user move
   //select all the buttons, and store them in an array
