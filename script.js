@@ -69,7 +69,6 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   playerReplace.textContent = `You chose ${playerChoice}.`;
   computerReplace.textContent = `Computer chose ${computerChoice}.`
 
-
   if(playRound(playerChoice, computerChoice) === 0) {
     playerScore++;
   } else if (playRound(playerChoice, computerChoice) === 1){
@@ -78,11 +77,9 @@ btns.forEach(btn => btn.addEventListener('click', () => {
 
   //Display the outcome of the round at the bottom of the 'plays' container
   const playReplace = document.querySelector('#play-replace');
-  const playOutcome = document.createElement('p');
-  playOutcome.textContent = declareWinner(playRound(playerChoice, computerChoice), playerChoice, computerChoice);
-  playReplace.replaceWith(playOutcome);
-  playOutcome.id = 'play-replace';
-
+  playReplace.textContent = declareWinner(playRound(playerChoice, computerChoice), playerChoice, computerChoice);
+  playReplace.classList.remove('hidden')
+  
   const runningScore = document.querySelector('#current-score');
   runningScore.textContent = `${playerScore} - ${computerScore}`;
   console.log(`Score: ${playerScore} - ${computerScore}`);
