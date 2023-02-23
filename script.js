@@ -88,5 +88,7 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   playReplace.replaceWith(playOutcome);
   playOutcome.id = 'play-replace';
 
+  const runningScore = document.querySelector('#current-score');
+  runningScore.textContent = `${playerScore} - ${computerScore}`;
   console.log(`Score: ${playerScore} - ${computerScore}`);
 }));
