@@ -64,16 +64,11 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   const computerChoice = getComputerChoice();
 
   //Display the plays in the DOM
-  let playerPlay = document.createElement('p');
-  let computerPlay = document.createElement('p');
-  playerPlay.textContent = `You chose ${playerChoice}.`;
-  computerPlay.textContent = `Computer chose ${computerChoice}.`
   const playerReplace = document.querySelector('#player-replace');
   const computerReplace = document.querySelector('#computer-replace');
-  playerReplace.replaceWith(playerPlay);
-  computerReplace.replaceWith(computerPlay);
-  playerPlay.id = 'player-replace';
-  computerPlay.id = 'computer-replace';
+  playerReplace.textContent = `You chose ${playerChoice}.`;
+  computerReplace.textContent = `Computer chose ${computerChoice}.`
+
 
   if(playRound(playerChoice, computerChoice) === 0) {
     playerScore++;
