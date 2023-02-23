@@ -79,8 +79,8 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   const playReplace = document.querySelector('#play-replace');
   playReplace.textContent = declareWinner(playRound(playerChoice, computerChoice), playerChoice, computerChoice);
   playReplace.classList.remove('hidden')
-  
+
+  //Display current score, player to computer
   const runningScore = document.querySelector('#current-score');
   runningScore.textContent = `${playerScore} - ${computerScore}`;
-  console.log(`Score: ${playerScore} - ${computerScore}`);
 }));
