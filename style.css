@@ -4,6 +4,16 @@
   padding: 0;
 }
 
+.start {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+}
+
 .hidden {
   display: none;
 }
@@ -19,15 +29,7 @@ body {
   margin: 0 auto;
 }
 
-.start {
-  height: 100%;
-  width: 100%;
-  background-color: rgb(255, 255, 255);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-}
+
 
 .score {
   height: 80px;

@@ -84,3 +84,10 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   const runningScore = document.querySelector('#current-score');
   runningScore.textContent = `${playerScore} - ${computerScore}`;
 }));
+
+const startButton = document.querySelector('#start-button');
+
+startButton.addEventListener('click', () => {
+  const startScreen = document.querySelector('.start');
+  startScreen.classList.add('hidden');
+});
