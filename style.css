@@ -19,6 +19,16 @@ body {
   margin: 0 auto;
 }
 
+.start {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+}
+
 .score {
   height: 80px;
 }
@@ -46,7 +56,7 @@ body {
   height: 150px;
 }
 
-.buttons button:hover {
+button:hover {
   background-color: rgb(200, 200, 200);
 }
 
