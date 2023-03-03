@@ -58,7 +58,7 @@ let computerScore = 0;
 
 //Listen for the buttons being clicked and use that as the player input to drive
 //round outcome and DOM changes
-let btns = [...document.querySelectorAll('button')];
+let btns = Array.from(document.querySelectorAll('.game-button'));
 btns.forEach(btn => btn.addEventListener('click', () => {
   const playerChoice = btn.id;
   const computerChoice = getComputerChoice();
