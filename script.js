@@ -20,14 +20,8 @@ function playRound (playerSelection, computerSelection) {
     computerScore++;
     outcome = 1;
   }
-  /*
-  if(playerScore === 5 || computerScore === 5) {
-    alert('WE HAVE A WINNER');
-    playerScore = 0;
-    computerScore = 0;
-  } */
+  
   updateGame(outcome, playerSelection, computerSelection);
-
 }
 
 //Function to declare a winner based on the round outcome and make change in the DOM
@@ -75,5 +69,11 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   const playerChoice = btn.id;
   const computerChoice = getComputerChoice();
   playRound(playerChoice, computerChoice);
+  if(playerScore === 5 || computerScore === 5) {
+    alert('WE HAVE A WINNER');
+    playerScore = 0;
+    computerScore = 0;
+    updateGame();
+  } 
 }));
 
