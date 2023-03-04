@@ -13,8 +13,10 @@ function playRound (playerSelection, computerSelection) {
     return 2;
   }
   if((computerSelection === 'rock' && playerSelection === 'paper') || (computerSelection === 'paper' && playerSelection === 'scissors') || (computerSelection === 'scissors' && playerSelection === 'rock')) {
+    playerScore++;
     return 0;
   }
+  computerScore++;
   return 1;
 }
 //Function to declare a winner based on the round outcome. player choice and 
@@ -62,24 +64,22 @@ let btns = Array.from(document.querySelectorAll('.game-button'));
 btns.forEach(btn => btn.addEventListener('click', () => {
   const playerChoice = btn.id;
   const computerChoice = getComputerChoice();
+  playRound(playerChoice, computerChoice);
 
   //Display the plays in the DOM
+  /*
   const playerReplace = document.querySelector('#player-replace');
   const computerReplace = document.querySelector('#computer-replace');
   playerReplace.textContent = `You chose ${playerChoice}.`;
   computerReplace.textContent = `Computer chose ${computerChoice}.`
 
-  if(playRound(playerChoice, computerChoice) === 0) {
-    playerScore++;
-  } else if (playRound(playerChoice, computerChoice) === 1){
-    computerScore++;
-  }
+ 
 
   //Display the outcome of the round at the bottom of the 'plays' container
   const playReplace = document.querySelector('#play-replace');
   playReplace.textContent = declareWinner(playRound(playerChoice, computerChoice), playerChoice, computerChoice);
   playReplace.classList.remove('hidden')
-
+  */
   //Display current score, player to computer
   const runningScore = document.querySelector('#current-score');
   runningScore.textContent = `${playerScore} - ${computerScore}`;
