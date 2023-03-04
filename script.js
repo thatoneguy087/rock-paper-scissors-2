@@ -56,6 +56,8 @@ const startButton = document.querySelector('#start-button');
 const startScreen = document.querySelector('.start');
 const gameOverButton = document.querySelector('#play-again-button');
 const gameOverScreen = document.querySelector('.game-over');
+const gameWinner = document.querySelector('#game-over-winner');
+const gameScore = document.querySelector('#game-score');
 let playerScore = 0;
 let computerScore = 0;
 const playerReplace = document.querySelector('#player-replace');
@@ -78,6 +80,12 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   const computerChoice = getComputerChoice();
   playRound(playerChoice, computerChoice);
   if(playerScore === 5 || computerScore === 5) { 
+    if(playerScore > computerScore) {
+      gameWinner.textContent = 'You won! :)'
+    } else {
+      gameWinner.textContent = 'You Lost! :(' 
+    }
+    gameScore.textContent += ` ${playerScore} - ${computerScore} !`
     gameOverScreen.classList.remove('hidden');
   } 
 }));
