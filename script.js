@@ -78,7 +78,7 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   const computerChoice = getComputerChoice();
   playRound(playerChoice, computerChoice);
   if(playerScore === 5 || computerScore === 5) {
-    alert('WE HAVE A WINNER');
+    gameOverScreen.classList.remove('hidden');
     restartGame();
   } 
 }));
