@@ -41,6 +41,14 @@ function updateGame(roundOutcome, playerChoice, computerChoice){
 
   runningScore.textContent = `${playerScore} - ${computerScore}`;
 }
+function restartGame() {
+  playerScore = 0;
+  computerScore = 0;
+  playerReplace.textContent = 'Player Choice';
+  computerReplace.textContent = 'Computer Choice';
+  playReplace.classList.add('hidden');
+  runningScore.textContent = '0 - 0';
+}
 
 //Start screen
 const startButton = document.querySelector('#start-button');
@@ -71,9 +79,7 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   playRound(playerChoice, computerChoice);
   if(playerScore === 5 || computerScore === 5) {
     alert('WE HAVE A WINNER');
-    playerScore = 0;
-    computerScore = 0;
-    updateGame();
+    restartGame();
   } 
 }));
 
