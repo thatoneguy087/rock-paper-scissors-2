@@ -50,11 +50,17 @@ function updateGame(roundOutcome, playerChoice, computerChoice){
 
 //Start screen
 const startButton = document.querySelector('#start-button');
-
+const startScreen = document.querySelector('.start');
 startButton.addEventListener('click', () => {
-  const startScreen = document.querySelector('.start');
   startScreen.classList.add('hidden');
 });
+
+const gameOverButton = document.querySelector('#play-again-button');
+const gameOverScreen = document.querySelector('.game-over');
+/*
+gameOverButton.addEventListener('click', () => {
+  gameOverScreen.classList.add('hidden');
+});*/
 
 //Main game area
 let playerScore = 0;
