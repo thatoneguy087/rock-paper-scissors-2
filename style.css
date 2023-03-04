@@ -9,10 +9,12 @@
   height: 100%;
   width: 100%;
   background-color: rgb(255, 255, 255);
+  position: fixed;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  gap: 64px;
 }
 
 
@@ -95,4 +97,9 @@ button {
   height: 100px;
   width: 100px;
   border: 2px solid red;
+}
+
+.start .img-placeholder {
+  height: 400px;
+  width: 400px;
 }
