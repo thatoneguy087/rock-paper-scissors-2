@@ -9,6 +9,7 @@ function getComputerChoice() {
 //Function to play a round of rock, paper, scissors.
 //Updates score and calls updateGame to change the DOM
 function playRound (playerSelection, computerSelection) {
+  
   let outcome;
   if(playerSelection === computerSelection) {
     outcome = 2;
@@ -19,7 +20,12 @@ function playRound (playerSelection, computerSelection) {
     computerScore++;
     outcome = 1;
   }
-
+  /*
+  if(playerScore === 5 || computerScore === 5) {
+    alert('WE HAVE A WINNER');
+    playerScore = 0;
+    computerScore = 0;
+  } */
   updateGame(outcome, playerSelection, computerSelection);
 
 }
@@ -27,12 +33,9 @@ function playRound (playerSelection, computerSelection) {
 //Function to declare a winner based on the round outcome and make change in the DOM
 function updateGame(roundOutcome, playerChoice, computerChoice){
 
-  const playerReplace = document.querySelector('#player-replace');
-  const computerReplace = document.querySelector('#computer-replace');
   playerReplace.textContent = `You chose ${playerChoice}.`;
   computerReplace.textContent = `Computer chose ${computerChoice}.`
 
-  const playReplace = document.querySelector('#play-replace');
   if(roundOutcome === 0) {
     playReplace.textContent =  `${playerChoice} beats ${computerChoice}!\nYou Win!`;
   } else if (roundOutcome === 1) {
@@ -42,7 +45,6 @@ function updateGame(roundOutcome, playerChoice, computerChoice){
   }
   playReplace.classList.remove('hidden')
 
-  const runningScore = document.querySelector('#current-score');
   runningScore.textContent = `${playerScore} - ${computerScore}`;
 }
 
@@ -57,6 +59,10 @@ startButton.addEventListener('click', () => {
 //Main game area
 let playerScore = 0;
 let computerScore = 0;
+const playerReplace = document.querySelector('#player-replace');
+const computerReplace = document.querySelector('#computer-replace');
+const playReplace = document.querySelector('#play-replace');
+const runningScore = document.querySelector('#current-score');
 
 let btns = Array.from(document.querySelectorAll('.game-button'));
 btns.forEach(btn => btn.addEventListener('click', () => {
