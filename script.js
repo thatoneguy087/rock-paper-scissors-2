@@ -79,7 +79,10 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   playRound(playerChoice, computerChoice);
   if(playerScore === 5 || computerScore === 5) {
     gameOverScreen.classList.remove('hidden');
-    restartGame();
+    gameOverButton.addEventListener('click', () => {
+      restartGame();
+      gameOverScreen.classList.add('hidden');
+    });
   } 
 }));
 
