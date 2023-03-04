@@ -50,21 +50,12 @@ function restartGame() {
   runningScore.textContent = '0 - 0';
 }
 
-//Start screen
+
+//UI elements
 const startButton = document.querySelector('#start-button');
 const startScreen = document.querySelector('.start');
-startButton.addEventListener('click', () => {
-  startScreen.classList.add('hidden');
-});
-
 const gameOverButton = document.querySelector('#play-again-button');
 const gameOverScreen = document.querySelector('.game-over');
-/*
-gameOverButton.addEventListener('click', () => {
-  gameOverScreen.classList.add('hidden');
-});*/
-
-//Main game area
 let playerScore = 0;
 let computerScore = 0;
 const playerReplace = document.querySelector('#player-replace');
@@ -72,17 +63,22 @@ const computerReplace = document.querySelector('#computer-replace');
 const playReplace = document.querySelector('#play-replace');
 const runningScore = document.querySelector('#current-score');
 
+//Main game area
+startButton.addEventListener('click', () => {
+  startScreen.classList.add('hidden');
+});
+gameOverButton.addEventListener('click', () => {
+  restartGame();
+  gameOverScreen.classList.add('hidden');
+});
+//game buttons
 let btns = Array.from(document.querySelectorAll('.game-button'));
 btns.forEach(btn => btn.addEventListener('click', () => {
   const playerChoice = btn.id;
   const computerChoice = getComputerChoice();
   playRound(playerChoice, computerChoice);
-  if(playerScore === 5 || computerScore === 5) {
+  if(playerScore === 5 || computerScore === 5) { 
     gameOverScreen.classList.remove('hidden');
-    gameOverButton.addEventListener('click', () => {
-      restartGame();
-      gameOverScreen.classList.add('hidden');
-    });
   } 
 }));
 
