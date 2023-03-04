@@ -9,52 +9,43 @@ function getComputerChoice() {
 //Function to play a round of rock, paper, scissors. Returns a number based on
 //the outcome. Number to be used for point allocation and winner declaration.
 function playRound (playerSelection, computerSelection) {
+  let outcome;
   if(playerSelection === computerSelection) {
-    return 2;
-  }
-  if((computerSelection === 'rock' && playerSelection === 'paper') || (computerSelection === 'paper' && playerSelection === 'scissors') || (computerSelection === 'scissors' && playerSelection === 'rock')) {
+    outcome = 2;
+  } else if((computerSelection === 'rock' && playerSelection === 'paper') || (computerSelection === 'paper' && playerSelection === 'scissors') || (computerSelection === 'scissors' && playerSelection === 'rock')) {
     playerScore++;
-    return 0;
+    outcome = 0;
+  } else {
+    computerScore++;
+    outcome = 1;
   }
-  computerScore++;
-  return 1;
+
+  updateGame(outcome, playerSelection, computerSelection);
+
 }
 //Function to declare a winner based on the round outcome. player choice and 
 //computer choice added for more detailed declaration message
-function declareWinner(roundOutcome, playerChoice, ComputerChoice){
-  switch(true) {
-    case roundOutcome === 0 :
-      return `${playerChoice} beats ${ComputerChoice}!\nYou Win!`;
-      break;
-    case roundOutcome === 1 :
-      return `${ComputerChoice} beats ${playerChoice}!\nComputer Wins!`;
-      break;
-    default:
-      return 'It\'s a tie!';
+function updateGame(roundOutcome, playerChoice, computerChoice){
+
+  const playerReplace = document.querySelector('#player-replace');
+  const computerReplace = document.querySelector('#computer-replace');
+  playerReplace.textContent = `You chose ${playerChoice}.`;
+  computerReplace.textContent = `Computer chose ${computerChoice}.`
+
+  const playReplace = document.querySelector('#play-replace');
+  if(roundOutcome === 0) {
+    playReplace.textContent =  `${playerChoice} beats ${computerChoice}!\nYou Win!`;
+  } else if (roundOutcome === 1) {
+    playReplace.textContent =  `${computerChoice} beats ${playerChoice}!\nComputer Wins!`;
+  } else {
+    playReplace.textContent =  'It\'s a tie!';
   }
+  playReplace.classList.remove('hidden')
+
+  const runningScore = document.querySelector('#current-score');
+  runningScore.textContent = `${playerScore} - ${computerScore}`;
 }
 
-//function to play a first to five game in the console.
-function game() {
-  let playerScore = 0;
-  let computerScore = 0;
-
-  while (playerScore < 5 && computerScore < 5){
-    const playerChoice = prompt('What is your move?', '').toLowerCase();
-    const computerChoice = getComputerChoice();
-    console.log('Player: ' + playerChoice);
-    console.log('Computer: ' + computerChoice);
-
-    if(playRound(playerChoice, computerChoice) === 0) {
-      playerScore++;
-    } else if (playRound(playerChoice, computerChoice) === 1){
-      computerScore++;
-    }
-    console.log(declareWinner(playRound(playerChoice, computerChoice)));
-    console.log('Score is ' + playerScore + ' to ' + computerScore + '!');
-    console.log('');
-  }
-}
 let playerScore = 0;
 let computerScore = 0;
 
@@ -65,24 +56,6 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   const playerChoice = btn.id;
   const computerChoice = getComputerChoice();
   playRound(playerChoice, computerChoice);
-
-  //Display the plays in the DOM
-  /*
-  const playerReplace = document.querySelector('#player-replace');
-  const computerReplace = document.querySelector('#computer-replace');
-  playerReplace.textContent = `You chose ${playerChoice}.`;
-  computerReplace.textContent = `Computer chose ${computerChoice}.`
-
- 
-
-  //Display the outcome of the round at the bottom of the 'plays' container
-  const playReplace = document.querySelector('#play-replace');
-  playReplace.textContent = declareWinner(playRound(playerChoice, computerChoice), playerChoice, computerChoice);
-  playReplace.classList.remove('hidden')
-  */
-  //Display current score, player to computer
-  const runningScore = document.querySelector('#current-score');
-  runningScore.textContent = `${playerScore} - ${computerScore}`;
 }));
 
 const startButton = document.querySelector('#start-button');
