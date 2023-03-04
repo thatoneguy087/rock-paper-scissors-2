@@ -6,8 +6,8 @@ function getComputerChoice() {
     'scissors'
 }
 
-//Function to play a round of rock, paper, scissors. Returns a number based on
-//the outcome. Number to be used for point allocation and winner declaration.
+//Function to play a round of rock, paper, scissors.
+//Updates score and calls updateGame to change the DOM
 function playRound (playerSelection, computerSelection) {
   let outcome;
   if(playerSelection === computerSelection) {
@@ -23,8 +23,8 @@ function playRound (playerSelection, computerSelection) {
   updateGame(outcome, playerSelection, computerSelection);
 
 }
-//Function to declare a winner based on the round outcome. player choice and 
-//computer choice added for more detailed declaration message
+
+//Function to declare a winner based on the round outcome and make change in the DOM
 function updateGame(roundOutcome, playerChoice, computerChoice){
 
   const playerReplace = document.querySelector('#player-replace');
@@ -46,11 +46,18 @@ function updateGame(roundOutcome, playerChoice, computerChoice){
   runningScore.textContent = `${playerScore} - ${computerScore}`;
 }
 
+//Start screen
+const startButton = document.querySelector('#start-button');
+
+startButton.addEventListener('click', () => {
+  const startScreen = document.querySelector('.start');
+  startScreen.classList.add('hidden');
+});
+
+//Main game area
 let playerScore = 0;
 let computerScore = 0;
 
-//Listen for the buttons being clicked and use that as the player input to drive
-//round outcome and DOM changes
 let btns = Array.from(document.querySelectorAll('.game-button'));
 btns.forEach(btn => btn.addEventListener('click', () => {
   const playerChoice = btn.id;
@@ -58,9 +65,3 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   playRound(playerChoice, computerChoice);
 }));
 
-const startButton = document.querySelector('#start-button');
-
-startButton.addEventListener('click', () => {
-  const startScreen = document.querySelector('.start');
-  startScreen.classList.add('hidden');
-});
