@@ -4,10 +4,26 @@
   padding: 0;
 }
 
+body {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.main-container {
+  margin: 0 auto;
+  max-width: 700px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
 .start,
 .game-over {
-  height: 100%;
-  width: 100%;
+  margin: 0 auto;
+  height: 700px;
+  width: 700px;
   background-color: rgb(255, 255, 255);
   position: fixed;
   display: flex;
@@ -22,16 +38,7 @@
   display: none;
 }
 
-body {
-  text-align: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
 
-.main-container {
-  max-width: 800px;
-  height: 800px;
-  margin: 0 auto;
-}
 
 
 
@@ -48,14 +55,12 @@ body {
 .move p {
   font-size: 24px;
   font-weight: bold;
-  padding: 24px 0;
 }
 
 .buttons {
   display: flex;
   justify-content: center;
   gap: 50px;
-  margin-bottom: 24px;
 }
 .buttons button {
   width: 150px;
