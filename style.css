@@ -94,6 +94,10 @@ button {
   height: 60px;
 }
 
+.waiting {
+  color:rgb(200, 200, 200);
+}
+
 .img-placeholder {
   height: 100px;
   width: 100px;

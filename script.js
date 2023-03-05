@@ -27,9 +27,10 @@ function playRound (playerSelection, computerSelection) {
 //Function to declare a winner based on the round outcome and make change in the DOM
 function updateGame(roundOutcome, playerChoice, computerChoice){
 
+  playerReplace.classList.remove('waiting');
+  computerReplace.classList.remove('waiting');
   playerReplace.textContent = `You chose ${playerChoice}.`;
   computerReplace.textContent = `Computer chose ${computerChoice}.`
-
   if(roundOutcome === 0) {
     playReplace.textContent =  `${playerChoice} beats ${computerChoice}!\nYou Win!`;
   } else if (roundOutcome === 1) {
@@ -44,8 +45,10 @@ function updateGame(roundOutcome, playerChoice, computerChoice){
 function restartGame() {
   playerScore = 0;
   computerScore = 0;
-  playerReplace.textContent = 'Player Choice';
-  computerReplace.textContent = 'Computer Choice';
+  playerReplace.textContent = 'Waiting for player move...';
+  computerReplace.textContent = 'Waiting for computer move...';
+  playerReplace.classList.add('waiting');
+  computerReplace.classList.add('waiting');
   playReplace.classList.add('hidden');
   runningScore.textContent = '0 - 0';
 }
