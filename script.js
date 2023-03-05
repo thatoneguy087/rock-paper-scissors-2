@@ -85,7 +85,7 @@ btns.forEach(btn => btn.addEventListener('click', () => {
     } else {
       gameWinner.textContent = 'You Lost! :(' 
     }
-    gameScore.textContent += ` ${playerScore} - ${computerScore} !`
+    gameScore.textContent = ` ${playerScore} - ${computerScore} !`
     gameOverScreen.classList.remove('hidden');
   } 
 }));
