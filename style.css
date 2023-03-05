@@ -33,12 +33,6 @@ body {
   gap: 32px;
 }
 
-.start button,
-.game-over button {
-  padding: 8px 16px;
-  border-radius: 4px;
-}
-
 
 .hidden {
   display: none;
@@ -72,6 +66,10 @@ body {
 button:hover {
   background-color: rgb(200, 200, 200);
 }
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px rgb(0, 0, 0);
+}
 
 button {
   display: flex;
@@ -84,6 +82,11 @@ button {
 
   font-size: 24px;
   font-weight: bold;
+
+  padding: 8px 16px;
+  border-radius: 4px;
+
+  box-shadow: 0 4px rgb(0, 0, 0);
 }
 
 .play {
