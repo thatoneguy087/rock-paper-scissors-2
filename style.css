@@ -116,6 +116,10 @@ button {
 
 .start .img-placeholder,
 .game-over .img-placeholder {
+  font-size: 250px;
   height: 400px;
   width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

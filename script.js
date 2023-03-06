@@ -57,7 +57,6 @@ function restartGame() {
   playImage.textContent = '';
 }
 
-
 //UI elements
 const startButton = document.querySelector('#start-button');
 const startScreen = document.querySelector('.start');
@@ -72,10 +71,25 @@ const computerReplace = document.querySelector('#computer-replace');
 const playReplace = document.querySelector('#play-replace');
 const runningScore = document.querySelector('#current-score');
 const playImage = document.querySelector('.play-image').childNodes[0];
+const startImage = document.querySelector('.start').childNodes[3];
+const rps = ['✊','✋','✌️'];
 
 //Main game area
+
+startImage.textContent = '✊';
+let counter = 1;
+let interval = setInterval(function () {
+  startImage.textContent = rps[counter];
+  counter ++;
+  if(counter > 2) {
+    counter = 0;
+  }
+}, 2000);
+
+
 startButton.addEventListener('click', () => {
   startScreen.classList.add('hidden');
+  clearInterval(interval);
 });
 gameOverButton.addEventListener('click', () => {
   restartGame();
