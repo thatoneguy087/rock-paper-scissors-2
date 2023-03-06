@@ -111,6 +111,7 @@ button {
   height: 100px;
   width: 100px;
   border: 2px solid red;
+  font-size: 72px;
 }
 
 .start .img-placeholder,
