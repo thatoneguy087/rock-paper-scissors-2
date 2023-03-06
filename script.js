@@ -73,6 +73,7 @@ const runningScore = document.querySelector('#current-score');
 const playImage = document.querySelector('.play-image').childNodes[0];
 const startImage = document.querySelector('.start').childNodes[3];
 const rps = ['✊','✋','✌️'];
+const gameOverImage = document.querySelector('.game-over').childNodes[5];
 
 //Main game area
 
@@ -104,9 +105,12 @@ btns.forEach(btn => btn.addEventListener('click', () => {
   if(playerScore === 5 || computerScore === 5) { 
     if(playerScore > computerScore) {
       gameWinner.textContent = 'You won! :)'
+      gameOverImage.textContent = '🥇';
     } else {
       gameWinner.textContent = 'You Lost! :(' 
+      gameOverImage.textContent = '🥈';
     }
+    
     gameScore.textContent = ` ${playerScore} - ${computerScore} !`
     gameOverScreen.classList.remove('hidden');
   } 
