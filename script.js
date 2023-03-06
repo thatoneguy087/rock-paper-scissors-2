@@ -33,10 +33,13 @@ function updateGame(roundOutcome, playerChoice, computerChoice){
   computerReplace.textContent = `Computer chose ${computerChoice}.`
   if(roundOutcome === 0) {
     playReplace.textContent =  `${playerChoice} beats ${computerChoice}!\nYou Win!`;
+    playImage.textContent = '😄';
   } else if (roundOutcome === 1) {
     playReplace.textContent =  `${computerChoice} beats ${playerChoice}!\nComputer Wins!`;
+    playImage.textContent = '🖥️';
   } else {
     playReplace.textContent =  'It\'s a tie!';
+    playImage.textContent = '🤝';
   }
   playReplace.classList.remove('hidden')
 
@@ -51,6 +54,7 @@ function restartGame() {
   computerReplace.classList.add('waiting');
   playReplace.classList.add('hidden');
   runningScore.textContent = '0 - 0';
+  playImage.textContent = '';
 }
 
 
@@ -67,6 +71,7 @@ const playerReplace = document.querySelector('#player-replace');
 const computerReplace = document.querySelector('#computer-replace');
 const playReplace = document.querySelector('#play-replace');
 const runningScore = document.querySelector('#current-score');
+const playImage = document.querySelector('.play-image').childNodes[0];
 
 //Main game area
 startButton.addEventListener('click', () => {
