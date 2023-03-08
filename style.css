@@ -33,11 +33,6 @@ body {
   gap: 32px;
 }
 
-
-.hidden {
-  display: none;
-}
-
 .score {
   height: 80px;
   font-size: 24px;
@@ -103,10 +98,6 @@ button {
   height: 60px;
 }
 
-.waiting {
-  color:rgb(200, 200, 200);
-}
-
 .img-placeholder {
   height: 100px;
   width: 100px;
@@ -121,4 +112,12 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.waiting {
+  color:rgb(200, 200, 200);
+}
+
+.hidden {
+  display: none;
 }
