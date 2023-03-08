@@ -45,6 +45,8 @@ function updateGame(roundOutcome, playerChoice, computerChoice){
 
   runningScore.textContent = `${playerScore} - ${computerScore}`;
 }
+
+//Function to set reset all game UI elements and scores.
 function restartGame() {
   playerScore = 0;
   computerScore = 0;
@@ -77,6 +79,7 @@ const gameOverImage = document.querySelector('.game-over').childNodes[5];
 
 //Main game area
 
+//Start screen slideshow animation thingy
 startImage.textContent = '✊';
 let counter = 1;
 let interval = setInterval(function () {
@@ -87,16 +90,19 @@ let interval = setInterval(function () {
   }
 }, 2000);
 
-
+//Start screen
 startButton.addEventListener('click', () => {
   startScreen.classList.add('hidden');
   clearInterval(interval);
 });
+
+//Game-over screen
 gameOverButton.addEventListener('click', () => {
   restartGame();
   gameOverScreen.classList.add('hidden');
 });
-//game buttons
+
+//Game buttons
 let btns = Array.from(document.querySelectorAll('.game-button'));
 btns.forEach(btn => btn.addEventListener('click', () => {
   const playerChoice = btn.id;
